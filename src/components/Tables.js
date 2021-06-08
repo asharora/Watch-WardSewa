@@ -1,5 +1,10 @@
 
 import React, { useState,useEffect }  from "react";
+import ReactHTMLTableToExcel from 'react-html-table-to-excel';
+import { CSVLink, CSVDownload } from "react-csv";
+/* eslint-disable no-unused-expressions */
+
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown, faAngleUp, faArrowDown, faArrowUp, faEdit, faEllipsisH, faExternalLinkAlt, faEye, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { Col, Row, Nav, Card, Image, Button, Table, Dropdown, ProgressBar, Pagination, ButtonGroup } from '@themesberg/react-bootstrap';
@@ -73,271 +78,7 @@ export const PageVisitsTable = () => {
 };
 
 export const PageTrafficTable = () => {
-  const TableRow = (props) => {
-    const { id, source, sourceIcon, sourceIconColor, sourceType, category, rank, trafficShare, change } = props;
-
-    return (
-
-      <tr>
-      {/* <th colspan="2" className="border-0">Time: 7:00 AM to 7:00 AM</th> */}
-      <th colspan="1" className="border-0">01/06/2021</th>
-      <th colspan="1" className="border-0">Monday</th>
-     
-      <th colspan="1" className="border-0">aman</th>
-      <th colspan="1" className="border-0">amit</th>
-      <th colspan="1" className="border-0">rahul</th>
-      <th colspan="1" className="border-0">Bhupesh</th>
-    </tr>
-      // <tr>
-      //   <td>
-      //     <Card.Link href="#" className="text-primary fw-bold">{id}</Card.Link>
-      //   </td>
-      //   <td>
-      //     <Card.Link href="#" className="text-primary fw-bold">{id}</Card.Link>
-      //   </td>
-        
-      //   <td className="fw-bold">
-      //     <FontAwesomeIcon icon={sourceIcon} className={`icon icon-xs text-${sourceIconColor} w-30`} />
-      //     {source}
-      //   </td>
-      //   <td>{sourceType}</td>
-      //   <td>{category ? category : "--"}</td>
-      //   <td>{rank ? rank : "--"}</td>
-      //   <td>
-      //     <Row className="d-flex align-items-center">
-      //       <Col xs={12} xl={2} className="px-0">
-      //         <small className="fw-bold">{trafficShare}%</small>
-      //       </Col>
-      //       <Col xs={12} xl={10} className="px-0 px-xl-1">
-      //         <ProgressBar variant="primary" className="progress-lg mb-0" now={trafficShare} min={0} max={100} />
-      //       </Col>
-      //     </Row>
-      //   </td>
-      //   <td>
-      //     <ValueChange value={change} suffix="%" />
-      //   </td>
-      // </tr>
-    );
-  };
-
-  return (
-    
-    <Card border="light" className="shadow-sm mb-4">
-      <Card.Body className="pb-0">
-      {/* <div>
-  <Table responsive="sm">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Table heading</th>
-        <th>Table heading</th>
-        <th>Table heading</th>
-        <th>Table heading</th>
-        <th>Table heading</th>
-        <th>Table heading</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-      </tr>
-    </tbody>
-  </Table>
-  <Table responsive="md">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Table heading</th>
-        <th>Table heading</th>
-        <th>Table heading</th>
-        <th>Table heading</th>
-        <th>Table heading</th>
-        <th>Table heading</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-      </tr>
-    </tbody>
-  </Table>
-  <Table responsive="lg">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Table heading</th>
-        <th>Table heading</th>
-        <th>Table heading</th>
-        <th>Table heading</th>
-        <th>Table heading</th>
-        <th>Table heading</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-      </tr>
-    </tbody>
-  </Table>
-  <Table responsive="xl">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Table heading</th>
-        <th>Table heading</th>
-        <th>Table heading</th>
-        <th>Table heading</th>
-        <th>Table heading</th>
-        <th>Table heading</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-      </tr>
-    </tbody>
-  </Table>
-</div> */}
-        <Table id="data" responsive className="table-centered table-nowrap rounded mb-0 table-responsive">
-          <thead className="thead-light">
-          <tr >
-              <th colspan="6" className="border-0">Watch & Ward Sewa // Ashok Nagar Ph II // 01st June to 30th June </th>
-          </tr>
-          <tr>
-              <th colspan="2" className="border-0">Incharge :</th>
-              <th colspan="2" className="border-0">Harvinder Rawal - 9717490223</th>
-              <th colspan="2" className="border-0">Ajay Gulati - 8823671536</th>
-            </tr>
-          
-          <tr>
-              {/* <th colspan="2" className="border-0">Time: 7:00 AM to 7:00 AM</th> */}
-              <th colspan="1" className="border-0">DATE</th>
-              <th colspan="1" className="border-0">DAY</th>
-             
-              <th colspan="1" className="border-0">Sewader 1</th>
-              <th colspan="1" className="border-0">Sewader 2</th>
-              <th colspan="1" className="border-0">Sewader 3</th>
-              <th colspan="1" className="border-0">Sewader 4</th>
-            </tr>
-          
-          </thead>
-          <tbody>
-            {pageTraffic.map(pt => <TableRow key={`page-traffic-${pt.id}`} {...pt} />)}
-          </tbody>
-        </Table>
-        {/* <ReactHTMLTableToExcel  
-                                                className="btn btn-info"  
-
-                                                table="data"  
-
-                                                filename="ReportExcel"  
-
-                                                sheet="Sheet"  
-
-                                                buttonText="Export excel" />   */}
-      </Card.Body>
-    </Card>
-  );
-};
-
-export const RankingTable = () => {
-  const [input, setinput] = useState("Aman");
+  const [input, setinput] = useState("");
   const [slotData, setslotData] = useState(null);
   
   useEffect(() => {
@@ -364,7 +105,7 @@ export const RankingTable = () => {
       <td colspan="1" className="border-0">{props["date"]}</td>
       <td colspan="1" className="border-0">{props["day"]}</td>
       { props["sewadars"].map(function(name,i){
-                 return   <Cell responseData={props} number={i+1}/>
+                 return   <UserCell responseData={props} number={i+1}/>
     
               })
 
@@ -438,17 +179,153 @@ export const RankingTable = () => {
           
           </thead>
           <tbody>
-            {slotData["data"].map(pt => <TableRow key={`page-traffic-${pt.id}`} {...pt} />)}
+            {slotData["data"].map(pt => !pt["sewadars"].includes("")?<></>:<TableRow key={`page-traffic-${pt.id}`} {...pt} />)}
           </tbody>
         </Table>
       <br/>
       </Card.Body>
     </Card>
   );
+};
+
+export const RankingTable = () => {
+  const [input, setinput] = useState("Aman");
+  const [slotData, setslotData] = useState(null);
+  
+  useEffect(() => {
+    fetch("https://watch-ward-backend.herokuapp.com/api/get-slots")
+    .then(response => response.json())
+    .then(data => setslotData(data))
+  },[])
+  var weekdays=[
+    
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday','Sunday'
+];
+  const TableRow = (props) => {
+    console.log(props);
+    return (
+
+      <tr>
+      {/* <th colspan="2" className="border-0">Time: 7:00 AM to 7:00 AM</th> */}
+      <td colspan="1" className="border-0">{props["date"]}</td>
+      <td colspan="1" className="border-0">{props["day"]}</td>
+      { props["sewadars"].map(function(name,i){
+                 return   <Cell responseData={props} number={i+1}/>
+    
+              })
+
+              }
+      </tr>
+      );
+  };
+
+  const myTable=(props)=>{
+    return(
+  <Table style={{borderCollapse:"seperate",borderSpacing:"0px 50px",height:"0px"}} hidden="true" id="myData" responsive className="table-centered table-nowrap rounded mb-0">
+          <thead className="thead-">
+          <tr className="thead-dark" style={{color:"white"}}>
+              <th colspan="6" className="border-0 text-center"style={{color:"white"}}><h3 style={{color:"white"}}>Watch & Ward Sewa</h3><h5 style={{color:"white"}}>Ashok Nagar Ph II</h5><h6 style={{color:"white"}}>01st June to 30th June</h6></th>
+          </tr>
+          <br/>
+          <tr>
+              <th colspan="2" className="border-0">Incharge :</th>
+              <td colspan="2" className="border-0">amit</td>
+              <td colspan="2" className="border-0">amit</td>
+            </tr>
+          
+          <tr>
+              {/* <th colspan="2" className="border-0">Time: 7:00 AM to 7:00 AM</th> */}
+              <th colspan="1" className="border-0">DATE</th>
+              <th colspan="1" className="border-0">DAY</th>
+              { slotData["data"][0]["sewadars"].map(function(name,i){
+                  return  <th colspan="1" className="border-0">{"Sewader "+(i+1)}</th>
+              
+              })
+
+              }
+              {/* <th colspan="1" className="border-0">Sewader 3</th>
+              <th colspan="1" className="border-0">Sewader 4</th> */}
+            </tr>
+          
+          </thead>
+          <tbody>
+            {slotData["data"].map(pt => <tr>
+            <td colspan="1" className="border-0">{pt["date"]}</td>
+            <td colspan="1" className="border-0">{pt["day"]}</td>
+            { pt["sewadars"].map(function(name,i){
+                 return   <td colspan="1" className="border-0">{name}</td>
+            
+    
+              })
+
+              }
+       
+            </tr>
+      )}
+          </tbody>
+        </Table>
+        )
+        return <div></div>
+      };
+
+  return (
+    slotData==null?<p>Loading ....</p>:<Card border="light" className="shadow-sm mb-4">
+      <Card.Body className="pb-0">
+    
+        <Table style={{borderCollapse:"seperate",borderSpacing:"0px 50px"}} id="data" responsive className="table-centered table-nowrap rounded mb-0">
+          <thead className="thead-">
+          <tr className="thead-dark" style={{color:"white"}}>
+              <th colspan="6" className="border-0 text-center"style={{color:"white"}}><h3 style={{color:"white"}}>Watch & Ward Sewa</h3><br/><h5 style={{color:"white"}}>Ashok Nagar Ph II</h5><br/><h6 style={{color:"white"}}>01st June to 30th June</h6></th>
+          </tr>
+          <br/>
+          <tr>
+              <th colspan="2" className="border-0">Incharge :</th>
+              <td colspan="2" className="border-0"><input type='text' style={{height:"30px"}} className='form-control' value={"amit"}/></td>
+              <td colspan="2" className="border-0"><input type='text' style={{height:"30px"}} className='form-control' value={"amit"}/></td>
+            </tr>
+          
+          <tr>
+              {/* <th colspan="2" className="border-0">Time: 7:00 AM to 7:00 AM</th> */}
+              <th colspan="1" className="border-0">DATE</th>
+              <th colspan="1" className="border-0">DAY</th>
+              { slotData["data"][0]["sewadars"].map(function(name,i){
+                  return  <th colspan="1" className="border-0">{"Sewader "+(i+1)}</th>
+              
+              })
+
+              }
+              {/* <th colspan="1" className="border-0">Sewader 3</th>
+              <th colspan="1" className="border-0">Sewader 4</th> */}
+            </tr>
+          
+          </thead>
+          <tbody>
+            {slotData["data"].map(pt => <TableRow key={`page-traffic-${pt.id}`} {...pt} />)}
+          </tbody>
+        </Table>
+      <br/>
+      {myTable()}
+      <ReactHTMLTableToExcel
+                    id="myData"
+                    className="download-table-xls-button"
+                    table="myData"
+                    filename="Duties"
+                    sheet="tablexls"
+
+                    buttonText="Report Download"/>
+      </Card.Body>
+    </Card>
+  );
 
 };
 
-const Cell=(props)=>{
+
+const UserCell=(props)=>{
   console.log(props.responseData["sewadars"]);
   
   const [input, setinput] = useState(props.responseData["sewadars"][props.number-1]);
@@ -472,6 +349,44 @@ const Cell=(props)=>{
         .then(data => alert(data["message"]))
      
     }}>
+    <input type='text'  style={{height:"30px"}} readOnly={input==""?false:true} className='form-control' value={input} 
+    onChange={(e)=>{
+      setinput(e.target.value);
+    }} 
+    onSubmit={(e)=>{setinput(e.target.value);
+    alert(e.value)
+    console.log(e.value)
+    }}
+  />
+  </form>
+    
+    </td>;
+     
+}
+
+const Cell=(props)=>{
+  const [input, setinput] = useState(props.responseData["sewadars"][props.number-1]);
+  //console.log(props.dat)
+  return <td colspan="1" className="border-0">
+    <form onSubmit={()=>{
+      setinput(input.toUpperCase());
+
+      const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          "name":input.toUpperCase(),
+     
+          "date":props.responseData["date"],
+          "sewadarNumber":props.number
+        })  };
+        console.log(requestOptions)
+        // fetch('https://watch-ward-backend.herokuapp.com/api/book-slot', requestOptions)
+        // .then(response => response.json())
+        // .then(data => alert('dd'))
+     
+    }}>
+     
     <input type='text' style={{height:"30px"}} className='form-control' value={input} 
     onChange={(e)=>{
       setinput(e.target.value);

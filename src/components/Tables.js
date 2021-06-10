@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import ReactHTMLTableToExcel from "react-html-table-to-excel";
 import { CSVLink, CSVDownload } from "react-csv";
 /* eslint-disable no-unused-expressions */
+import { Table, Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table";
+import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -22,7 +24,7 @@ import {
   Card,
   Image,
   Button,
-  Table,
+  // Table,
   Dropdown,
   ProgressBar,
   Pagination,
@@ -117,9 +119,9 @@ export const PageTrafficTable = () => {
           responsive
           className="table-centered table-nowrap rounded mb-0"
         >
-          <thead className="thead-">
-            <tr className="thead-dark" style={{ color: "white" }}>
-              <th
+          <Thead className="thead-">
+            <Tr className="thead-dark" style={{ color: "white" }}>
+              <Th
                 colspan="6"
                 className="border-0 text-center"
                 style={{ color: "white" }}
@@ -146,41 +148,41 @@ export const PageTrafficTable = () => {
                       ].split("-")[1]
                     ]}
                 </h6>
-              </th>
-            </tr>
+              </Th>
+            </Tr>
             <br />
-            <tr>
-              <th colspan="2" className="border-0">
+            <Tr>
+              <Th colspan="2" className="border-0">
                 Incharge :
-              </th>
-              <td colspan="2" className="border-0">
+              </Th>
+              <Td colspan="2" className="border-0">
                 {slotData["header"]["field1"]}
-              </td>
-              <td colspan="2" className="border-0">
+              </Td>
+              <Td colspan="2" className="border-0">
                 {slotData["header"]["field2"]}
-              </td>
-            </tr>
+              </Td>
+            </Tr>
 
-            <tr>
+            <Tr>
               {/* <th colspan="2" className="border-0">Time: 7:00 AM to 7:00 AM</th> */}
-              <th colspan="1" className="border-0">
+              <Th colspan="1" className="border-0">
                 DATE
-              </th>
-              <th colspan="1" className="border-0">
+              </Th>
+              <Th colspan="1" className="border-0">
                 DAY
-              </th>
+              </Th>
               {slotData["data"][0]["sewadars"].map(function (name, i) {
                 return (
-                  <th colspan="1" className="border-0">
+                  <Th colspan="1" className="border-0">
                     {"Sewader " + (i + 1)}
-                  </th>
+                  </Th>
                 );
               })}
               {/* <th colspan="1" className="border-0">Sewader 3</th>
               <th colspan="1" className="border-0">Sewader 4</th> */}
-            </tr>
-          </thead>
-          <tbody>
+            </Tr>
+          </Thead>
+          <Tbody>
             {slotData["data"].map((pt) =>
               !pt["sewadars"].includes("") ? (
                 <></>
@@ -188,7 +190,7 @@ export const PageTrafficTable = () => {
                 <TableRow key={`page-traffic-${pt.id}`} {...pt} />
               )
             )}
-          </tbody>
+          </Tbody>
         </Table>
         <br />
       </Card.Body>

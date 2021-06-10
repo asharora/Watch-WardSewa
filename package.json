@@ -27,6 +27,7 @@
     "react-live": "^2.2.3",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
+    "react-super-responsive-table": "^5.2.0",
     "react-toast-notifications": "^2.4.4",
     "react-toastify": "^7.0.4",
     "serve": "^11.3.2"
